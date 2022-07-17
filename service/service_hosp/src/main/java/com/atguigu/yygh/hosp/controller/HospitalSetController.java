@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Random;
 
-@Api(tags = "医院设置管理")
+@Api(tags = "医院设置管理 ")
 @RestController
 @RequestMapping("/admin/hosp/hospitalSet")
 //@CrossOrigin
