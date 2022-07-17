@@ -7,6 +7,7 @@ import com.atguigu.yygh.hosp.mapper.ScheduleMapper;
 import com.atguigu.yygh.hosp.repository.ScheduleRepository;
 import com.atguigu.yygh.hosp.service.DepartmentService;
 import com.atguigu.yygh.hosp.service.HospitalService;
+import com.atguigu.yygh.hosp.service.HospitalSetService;
 import com.atguigu.yygh.hosp.service.ScheduleService;
 import com.atguigu.yygh.model.hosp.BookingRule;
 import com.atguigu.yygh.model.hosp.Department;
@@ -33,6 +34,7 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
+import javax.annotation.Resource;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -51,6 +53,8 @@ public class ScheduleServiceImpl extends
 
     @Autowired
     private DepartmentService departmentService;
+    @Resource
+    private HospitalSetService HospitalSetService;
 
     //上传排班接口
     @Override
