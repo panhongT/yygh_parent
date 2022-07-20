@@ -19,7 +19,7 @@ var util ={
 			}
 			return false;
 		},
-		remove : function(arr , val) {    
+		remove : function(arr , val) {
             var index = arr.indexOf(val);
             if (index > -1) {
                 arr.splice(index, 1);
@@ -38,7 +38,7 @@ var util ={
 		if(phone.length != 11){
 			return phone;
 		}
-		return phone.substr(0, 3)+'*****'+phone.substr(8); 
+		return phone.substr(0, 3)+'*****'+phone.substr(8);
 	},
 	//邮箱
 	checkMail:function(v){
@@ -158,7 +158,7 @@ var util ={
 			window.localStorage.setItem('_localStorage_support_',1);
 			return  window.localStorage;
 		}catch(e){
-			
+
 			return {
 			    getItem: function (sKey) {
 			      if (!sKey || !this.hasOwnProperty(sKey)) { return null; }
@@ -227,11 +227,11 @@ var util ={
 		}
 		return undefined;
 	},
-	setCookie:function (name,value){  
-        var Days = 7;  
-        var exp  = new Date();  
-        exp.setTime(exp.getTime() + Days*24*60*60*1000);  
-        document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString()+';path=/;';  
+	setCookie:function (name,value){
+        var Days = 7;
+        var exp  = new Date();
+        exp.setTime(exp.getTime() + Days*24*60*60*1000);
+        document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString()+';path=/;';
     } ,
     //删除cookie
     delCookie:function(name){//为了删除指定名称的cookie，可以将其过期时间设定为一个过去的时间
@@ -247,21 +247,21 @@ var util ={
 			return r[2];
 		return null;
 	},
-	
+
 	//比较两个日期大小
-	compareDate : function(startTime,endTime){  
+	compareDate : function(startTime,endTime){
 		if(typeof startTime == 'object'){
 			startTime = util.formatDate('YYYY-MM-DD hh:mm:ss');
 		}
 		if(typeof endTime == 'object'){
 			endTime = util.formatDate('YYYY-MM-DD hh:mm:ss');
 		}
-	    var start = new Date(startTime.replace("-", "/").replace("-", "/"));  
-	    var end=new Date(endTime.replace("-", "/").replace("-", "/"));      
-	    if(end<start){  
-	        return false;  
-	    }  
-	    return true;  
+	    var start = new Date(startTime.replace("-", "/").replace("-", "/"));
+	    var end=new Date(endTime.replace("-", "/").replace("-", "/"));
+	    if(end<start){
+	        return false;
+	    }
+	    return true;
 	},
 	//校验密码
 	checkPwd : function(pwd){
@@ -273,16 +273,16 @@ var util ={
 			return 1; //正确
 		}
 	},
-	//渲染模板 
+	//渲染模板
 	render: function(id, data, type) {
-		$("#"+id).setTemplateElement(id+"-template");
+		$("#"+id).setTemplateElement(id+"-templates");
 		$("#"+id).processTemplate(data);
-		
+
 		if (typeof container == 'undefined') {
 			$("#"+id+" li").insertBefore("#"+id);
 		}
 	},
-	
+
 	//判断是否为微信浏览器
 	isWeixinBrowser : function() {
 		var ua = navigator.userAgent.toLowerCase();//获取判断用的对象
@@ -326,7 +326,7 @@ ajax = {
 			successCallback = param;
 			param= {};
 		}
-		
+
 		$.ajax({
 			url : url+"?v="+util.nonceStr(),
 			contentType : "application/json; charset=utf-8",
@@ -345,7 +345,7 @@ ajax = {
 					//如果是登录页面
 					window.location.href = config.basePath+'/acl/login';
 				}
-				
+
 				if(status === 200){
 					if(typeof successCallback == 'function'){
 						successCallback(data);
@@ -373,7 +373,7 @@ ajax = {
 			successCallback = param;
 			param= {};
 		}
-		
+
 		$.ajax({
 			url : url+"?v="+util.nonceStr(),
 			contentType : "application/json; charset=utf-8",
@@ -390,7 +390,7 @@ ajax = {
 					console.log('用户尚未登录，请重新登录后在操作.');
 					window.location.href = config.basePath+'/acl/login';
 				}
-				
+
 				if(status === 200){
 					if(typeof successCallback == 'function'){
 						successCallback(data);
@@ -398,7 +398,7 @@ ajax = {
 				}
 
 				if(typeof errorCallback == 'function' && status!=200){
-				
+
 					errorCallback(data);
 				}
 			},

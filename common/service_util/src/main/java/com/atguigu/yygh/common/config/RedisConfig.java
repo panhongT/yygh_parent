@@ -21,7 +21,7 @@ import java.lang.reflect.Method;
 import java.time.Duration;
 
 @Configuration
-@EnableCaching
+@EnableCaching//开启缓存
 public class RedisConfig {
 
     /**
